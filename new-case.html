@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTrace - New Case</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/new-case.css">
+    <link rel="icon" type="/assets/image/png" href="n.png">
+</head>
+<body class="bg-gray-100">
+    <div class="case-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div>
+                <h1 class="header-title">New Investigation</h1>
+                <p class="header-subtitle">Create a new digital forensics case</p>
+            </div>
+            <div class="date-display">
+                <i data-lucide="calendar" class="icon"></i>
+                <span class="date-text" id="currentDate"></span>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <form id="caseForm" class="form-container">
+            <div class="form-grid">
+                <!-- Case Information Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Case Information</h2>
+                        <p class="card-subtitle">Enter the basic case details</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label class="input-label">Case Number</label>
+                            <input 
+                                name="caseNumber" 
+                                required 
+                                class="input-field"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Case Name</label>
+                            <input 
+                                name="caseName" 
+                                required 
+                                class="input-field"
+                            />
+                        </div>
+                        
+                        <div class="split-fields">
+                            <div class="input-group">
+                                <label class="input-label">Priority</label>
+                                <select name="priority" class="select-field">
+                                    <option value="high">High</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">Status</label>
+                                <select name="status" class="select-field">
+                                    <option value="open" selected>Open</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investigation Details Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Investigation Details</h2>
+                        <p class="card-subtitle">Enter examiner and agency information</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label class="input-label">Date Received</label>
+                            <input
+                                type="date"
+                                name="dateReceived"
+                                required
+                                class="input-field"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Lead Examiner</label>
+                            <input
+                                name="examiner"
+                                required
+                                class="input-field"
+                            />
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Requesting Agency</label>
+                            <input
+                                name="requestingAgency"
+                                required
+                                class="input-field"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Description Card -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Case Description</h2>
+                    <p class="card-subtitle">Provide detailed information about the case</p>
+                </div>
+                <div class="card-body">
+                    <textarea
+                        name="description"
+                        class="textarea-field"
+                        placeholder="Enter case details, scope, and objectives..."
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="button-container">
+                <button
+                    type="button"
+                    id="resetButton"
+                    class="reset-button"
+                >
+                    Reset
+                </button>
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Create Case
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/new-case.js"></script>
+</body>
+</html>

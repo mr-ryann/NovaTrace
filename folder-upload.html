@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTrace - Folder Upload</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/folder-upload.css">
+    <link rel="icon" type="/assets/image/png" href="n.png">
+</head>
+<body class="bg-gray-100">
+    <div class="upload-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div>
+                <h1 class="header-title">Evidence Upload</h1>
+                <p class="header-subtitle">Upload a folder containing evidence files</p>
+            </div>
+            <div class="date-display">
+                <i data-lucide="calendar" class="icon"></i>
+                <span class="date-text" id="currentDate"></span>
+            </div>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Upload Evidence Folder</h2>
+                <p class="card-subtitle">Select a folder containing digital evidence files</p>
+            </div>
+            <div class="card-body">
+                <!-- Upload Zone -->
+                <div class="upload-zone" id="uploadZone">
+                    <input 
+                        type="file" 
+                        id="folderInput" 
+                        webkitdirectory=""
+                        multiple 
+                        class="hidden"
+                    >
+                    <div class="upload-content">
+                        <i data-lucide="folder-up" class="upload-icon"></i>
+                        <h3 class="upload-title">Drop folder here or click to browse</h3>
+                        <p class="upload-subtitle">Supports folders containing files of any type</p>
+                    </div>
+                </div>
+
+                <!-- Upload Progress -->
+                <div id="uploadProgress" class="upload-progress hidden">
+                    <div class="progress-header">
+                        <span class="progress-title">Uploading Files...</span>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-details">
+                        <span id="filesCount">0 files found</span>
+                    </div>
+                </div>
+
+                <!-- File List -->
+                <div id="fileList" class="file-list hidden">
+                    <h3 class="file-list-title">Files in folder</h3>
+                    <div class="file-items"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-container">
+            <button id="cancelButton" class="reset-button">
+                <span class="button-content">
+                    <i data-lucide="x" class="button-icon"></i>
+                    <span>Cancel</span>
+                </span>
+            </button>
+            <button id="analyzeButton" class="analyze-button" disabled>
+                <span class="button-content">
+                    <i data-lucide="search" class="button-icon"></i>
+                    <span>Analyze</span>
+                </span>
+            </button>
+        </div>
+
+    <!-- Scripts -->
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/folder-upload.js"></script>
+</body>
+<input type="file" id="folderInput" webkitdirectory directory multiple class="hidden" />
+</html>

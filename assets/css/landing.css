@@ -1,0 +1,101 @@
+/* Custom styles for NovaTrace Landing Page */
+@import url('styles.css');
+/* Login Dialog Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(0); }
+}
+
+#loginDialog {
+    animation: fadeIn 0.3s ease-out;
+}
+
+#loginDialog > div {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Loading Animation */
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom Transitions */
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Focus States */
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Button Hover Effects */
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flex.gap-4 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .flex.gap-4 button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Feature Card Hover Effects */
+.bg-white.p-6.rounded-lg {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bg-white.p-6.rounded-lg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Stats Animation */
+.text-4xl.font-bold {
+    transition: transform 0.3s ease;
+}
+
+.text-4xl.font-bold:hover {
+    transform: scale(1.1);
+}

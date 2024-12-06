@@ -1,0 +1,167 @@
+/* Home Page Styles */
+@import url('styles.css');
+/* Sidebar Transitions */
+#sidebar {
+    transition: width 0.3s ease;
+}
+
+#sidebar.collapsed {
+    width: 5rem;
+}
+
+/* Hide elements when sidebar is collapsed */
+#sidebar.collapsed #logo-container span,
+#sidebar.collapsed #user-info,
+#sidebar.collapsed nav span.flex-1 {
+    display: none;
+}
+
+#sidebar.collapsed .w-12.h-12 {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+#sidebar.collapsed .w-4.h-4 {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0;
+}
+
+/* Activity Card Animations */
+.activity-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Stats Card Animations */
+.stats-card {
+    transition: transform 0.3s ease;
+}
+
+.stats-card:hover {
+    transform: scale(1.02);
+}
+
+/* Quick Action Buttons */
+.grid button {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.grid button:hover {
+    transform: translateY(-2px);
+}
+
+.grid button:active {
+    transform: translateY(0);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    #sidebar {
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+    }
+    
+    #sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+}
+
+/* Activity Icons */
+.activity-icon {
+    padding: 0.5rem;
+    border-radius: 9999px;
+}
+
+.activity-icon.update {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.activity-icon.create {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.activity-icon.close {
+    background-color: rgba(139, 92, 246, 0.1);
+    color: #8b5cf6;
+}
+
+/* Notification Badge Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.bg-red-500 {
+    animation: pulse 2s infinite;
+}
+/* Quick Actions Grid */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+/* Quick Action Button */
+.quick-action-button {
+    height: 4rem;
+    font-size: 1.125rem;
+    background-color: #111827;
+    color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.quick-action-button:hover {
+    background-color: #1F2937;
+}
+
+.action-icon {
+    margin-right: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forensic Analysis Tool</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="/assets/css/tool.css">
+    <link rel="icon" type="/assets/image/png" href="n.png">
+</head>
+<body>
+    <div class="container">
+        <div id="sidebar" class="sidebar">
+            <div class="toggle-container">
+                <button id="sidebarToggle" class="toggle-button">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+            <div class="account-info">
+                <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%3E%3Ccircle%20cx='12'%20cy='12'%20r='11'%20fill='%23ccc'/%3E%3C/svg%3E" 
+                     class="profile-img" 
+                     alt="Profile">
+                <h3>John Doe</h3>
+                <p>Investigator</p>
+                <p>Case: NOVA-2024-001</p>
+            </div>
+
+            <div class="navigation">
+                <button class="nav-button" data-section="log">
+                    <i data-lucide="terminal"></i>
+                    <span>Log Analysis</span>
+                </button>
+
+                <button class="nav-button" data-section="network">
+                    <i data-lucide="network"></i>
+                    <span>Network Analysis</span>
+                </button>
+
+                <button class="nav-button" data-section="registry">
+                    <i data-lucide="database"></i>
+                    <span>Registry Analysis</span>
+                </button>
+
+                <button class="nav-button">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </button>
+
+                <div class="dropdown">
+                    <button id="reportsDropdown" class="nav-button">
+                        <i data-lucide="file-text"></i>
+                        <span>Reports</span>
+                        <!-- <i data-lucide="chevron-down" class="chevron-icon"></i> -->
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#" data-file="NOVA-2024-001.pdf">
+                            <i data-lucide="scroll"></i>
+                            <span>Case Report (PDF)</span>
+                        </a>
+                        <a href="#" data-file="NOVA-2024-001.csv">
+                            <i data-lucide="database"></i>
+                            <span>Analysis Data (CSV)</span>
+                        </a>
+                        <a href="#" data-file="NOVA-2024-001.json">
+                            <i data-lucide="braces"></i>
+                            <span>Raw Data (JSON)</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div id="content-area">
+                <div class="welcome-message">                 
+                    <p>Select an analysis option from the sidebar to begin your investigation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/tool.js"></script>
+    <script src="/assets/js/router.js"></script>
+</body>
+</html>

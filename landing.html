@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NovaTrace - Digital Forensics & Incident Response</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <link rel="stylesheet" type="text/css" href="/assets/css/landing.css">
+        <link rel="icon" type="/assets/image/png" href="n.png">
+    </head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Login Dialog -->
+    <div id="loginDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full relative">
+            <div class="p-6">
+                <h2 class="text-xl font-semibold mb-1">Login to NovaTrace</h2>
+                <p class="text-gray-500 mb-4">Enter your credentials to access the full features</p>
+                <form id="loginForm" class="space-y-4">
+                    <div class="space-y-2">
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <div class="relative">
+                            <i data-lucide="mail" class="absolute left-3 top-3 h-4 w-4 text-gray-400"></i>
+                            <input id="email" type="email" placeholder="name@company.com" 
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <div class="relative">
+                            <i data-lucide="lock" class="absolute left-3 top-3 h-4 w-4 text-gray-400"></i>
+                            <input id="password" type="password" placeholder="Enter your password" 
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                    <div class="flex justify-end pt-2">
+                        <button type="button" id="cancelLogin" 
+                            class="mr-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
+                            Cancel
+                        </button>
+                        <button type="submit" id="submitLogin" 
+                            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                            <span class="login-text">Login</span>
+                            <span class="loading-text hidden">
+                                <i data-lucide="loader-2" class="animate-spin mr-2 h-4 w-4"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold">NovaTrace</div>
+                <button id="loginButton" 
+                    class="px-4 py-2 border border-white rounded-lg bg-transparent hover:bg-white hover:text-gray-900 transition-colors flex items-center">
+                    <i data-lucide="log-in" class="mr-2 h-4 w-4"></i>
+                    <span>Login</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+        <div class="container mx-auto px-4 py-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl font-bold mb-6">
+                    Advanced Digital Forensics & Incident Response
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Powerful forensics analysis toolkit for security professionals. 
+                    Investigate incidents, collect evidence, and respond rapidly.
+                </p>
+                <div class="flex gap-4 justify-center">
+                    <button id="tryButton" 
+                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white flex items-center transition-colors">
+                        Try Now
+                        <i data-lucide="chevron-right" class="ml-2 h-4 w-4"></i>
+                    </button>
+                    <button class="px-6 py-3 border border-white rounded-lg bg-transparent hover:bg-white hover:text-gray-900 flex items-center transition-colors">
+                        <i data-lucide="github" class="mr-2 h-4 w-4"></i>
+                        View on GitHub
+                    </button>
+                </div>
+                <p id="loginRequired" class="text-sm text-gray-400 mt-4">
+                    Login required to access the tool
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-16 container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-start">
+                    <div class="p-2 bg-blue-100 rounded-lg">
+                        <i data-lucide="search" class="h-6 w-6 text-blue-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="font-semibold text-lg mb-2">Deep Analysis</h3>
+                        <p class="text-gray-600">
+                            Advanced memory forensics, disk imaging, and malware detection capabilities
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-start">
+                    <div class="p-2 bg-green-100 rounded-lg">
+                        <i data-lucide="clock" class="h-6 w-6 text-green-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="font-semibold text-lg mb-2">Rapid Response</h3>
+                        <p class="text-gray-600">
+                            Quick triage and automated evidence collection to minimize incident impact
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <div class="flex items-start">
+                    <div class="p-2 bg-purple-100 rounded-lg">
+                        <i data-lucide="terminal" class="h-6 w-6 text-purple-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <h3 class="font-semibold text-lg mb-2">Command Line</h3>
+                        <p class="text-gray-600">
+                            Powerful CLI interface for automation and scripting capabilities
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div>
+                    <div class="text-4xl font-bold text-blue-400">500+</div>
+                    <div class="mt-2 text-gray-400">Active Users</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-blue-400">50k+</div>
+                    <div class="mt-2 text-gray-400">Investigations</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold text-blue-400">99%</div>
+                    <div class="mt-2 text-gray-400">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="py-16 container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">
+                Ready to enhance your forensics capabilities?
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+                Join hundreds of security professionals who trust NovaTrace for their DFIR needs.
+            </p>
+            <button id="ctaTryButton" 
+                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center mx-auto transition-colors">
+                Try Now
+                <i data-lucide="chevron-right" class="ml-2 h-4 w-4"></i>
+            </button>
+            <p class="text-sm text-gray-600 mt-4 login-required">
+                Login required to access the tool
+            </p>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="/assets/js/router.js"></script>
+    <script src="/assets/js/landing.js"></script>
+</body>
+</html>

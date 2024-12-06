@@ -1,0 +1,118 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTrace - Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/home.css">
+    <link rel="icon" type="/assets/image/png" href="n.png">
+</head>
+<body class="flex min-h-screen bg-gray-100">
+    <!-- Account Sidebar -->
+    <div id="sidebar" class="bg-white shadow-lg transition-all duration-300 w-64">
+        <div class="p-4 border-b flex items-center justify-between">
+            <div class="flex items-center" id="logo-container">
+                <span class="font-bold text-lg">NovaTrace</span>
+            </div>
+            <button id="toggleSidebar" class="p-2 hover:bg-gray-100 rounded-lg transition-colors">
+                <i data-lucide="chevron-left" class="h-6 w-6"></i>
+            </button>
+        </div>
+
+        <div class="p-4 border-b">
+            <div class="flex flex-col items-center">
+                <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                    <i data-lucide="user" class="w-6 h-6 text-gray-500"></i>
+                </div>
+                <div id="user-info">
+                    <h2 class="text-xl font-bold text-center" id="userName">John Doe</h2>
+                    <p class="text-sm text-gray-500 text-center mt-1" id="userRole">Senior Digital Forensics Investigator</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="p-2">
+            <nav class="space-y-2">
+                <button class="w-full p-2 flex items-center hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="mail" class="w-4 h-4 mr-2"></i>
+                    <span class="flex-1">Messages</span>
+                </button>
+                <button class="w-full p-2 flex items-center hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="bell" class="w-4 h-4 mr-2"></i>
+                    <span class="flex-1">Notifications</span>                  
+                </button>
+                <button class="w-full p-2 flex items-center hover:bg-gray-100 rounded-lg transition-colors">
+                    <i data-lucide="settings" class="w-4 h-4 mr-2"></i>
+                    <span class="flex-1">Settings</span>
+                </button>
+                <button class="w-full p-2 flex items-center hover:bg-red-50 rounded-lg transition-colors text-red-500 hover:text-red-600"
+                        id="logoutButton">
+                    <i data-lucide="log-out" class="w-4 h-4 mr-2"></i>
+                    <span class="flex-1">Logout</span>
+                </button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-8 flex flex-col h-screen">
+        <!-- Welcome Section -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h1 class="text-2xl font-bold">Welcome back, <span id="welcomeName">John Doe</span></h1>
+            <p class="text-gray-500 mt-1">Last login: <span id="lastLogin">Nov 19, 10:30 AM</span></p>
+        </div>
+
+        <!-- Active Cases Summary -->
+        <div class="grid grid-cols-3 gap-4 mb-6">
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-lg font-semibold mb-2">Active Cases</h2>
+                <div class="text-3xl font-bold text-blue-600">12</div>
+                <p class="text-sm text-gray-500">Currently in progress</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-lg font-semibold mb-2">High Priority</h2>
+                <div class="text-3xl font-bold text-red-600">3</div>
+                <p class="text-sm text-gray-500">Require immediate attention</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-lg font-semibold mb-2">Completed This Month</h2>
+                <div class="text-3xl font-bold text-green-600">8</div>
+                <p class="text-sm text-gray-500">Cases resolved</p>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-lg shadow-sm p-6 flex-1 mb-6">
+            <h2 class="text-xl font-bold mb-2">Recent Activity</h2>
+            <p class="text-gray-500 mb-4">Your latest actions and updates</p>
+            <div class="space-y-4" id="recentActivities">
+                <!-- Activities will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions-grid">
+            <button id="newCaseButton" class="quick-action-button">
+                <i data-lucide="plus" class="action-icon"></i>
+                <span>New Case</span>
+            </button>
+            
+            <button id="openCasesButton" class="quick-action-button">
+                <i data-lucide="folder-open" class="action-icon"></i>
+                <span>Open Cases</span>
+            </button>
+            
+            <button id="completedCasesButton" class="quick-action-button">
+                <i data-lucide="check-square" class="action-icon"></i>
+                <span>Completed</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="/assets/js/home.js"></script>
+    <script src="/assets/js/router.js"></script>
+</body>
+</html>

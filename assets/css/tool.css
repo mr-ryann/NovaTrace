@@ -1,0 +1,315 @@
+/* Tool Page Specific Styles */
+@import url('styles.css');
+/* Container Layout */
+.container {
+    max-width: none;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 240px;
+    background-color: #ffffff;
+    color: #333333;
+    transition: width 0.3s ease;
+    flex-shrink: 0;
+    border-right: 1px solid #e5e7eb;
+    z-index: 1000;
+    position: relative;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+/* Sidebar Toggle */
+.toggle-container {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sidebar.collapsed .toggle-container {
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.toggle-button {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button:hover {
+    color: #3498db;
+}
+
+/* Account Info Section */
+.account-info {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar.collapsed .account-info {
+    display: none;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 2px solid #e5e7eb;
+}
+
+.account-info h3 {
+    color: #333333;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.account-info p {
+    color: #666666;
+    font-size: 0.9em;
+}
+
+/* Navigation Section */
+.navigation {
+    padding: 20px 0;
+}
+
+.nav-button {
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    margin: 5px 0;
+    background: none;
+    border: none;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+}
+
+.sidebar.collapsed .nav-button {
+    padding: 0;
+    justify-content: center;
+}
+
+.sidebar.collapsed .nav-button span {
+    display: none;
+}
+
+.nav-button:hover {
+    background-color: #f3f4f6;
+}
+
+.nav-button.active {
+    background-color: #e5e7eb;
+}
+
+.nav-button.active i,
+.nav-button.active span {
+    color: #3498db;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #f8f9fa;
+    padding: 5px 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+.sidebar.collapsed .dropdown-content {
+    left: 100%;
+    top: 0;
+    width: 200px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    color: #333333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f3f4f6;
+    color: #3498db;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f5f5;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 240px);
+    margin-left: 0px;
+}
+
+.sidebar.collapsed ~ .main-content {
+    width: calc(100% - 60px);
+    margin-left: 0px;
+}
+
+/* Welcome Message */
+.welcome-message {
+    text-align: center;
+    padding: 50px 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.welcome-message h1 {
+    color: #2c3e50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.welcome-message p {
+    color: #4a5568;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Analysis Sections */
+.analysis-section {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: none;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.analysis-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.analysis-section h2 {
+    color: #2c3e50;
+    font-size: 24px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.analysis-section p {
+    color: #4a5568;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+/* Analysis Button */
+.analyze-button {
+    padding: 14px 28px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.analyze-button i {
+    font-size: 18px;
+}
+
+.analyze-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.analyze-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Lucide Icon Specific Styles */
+.lucide {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        height: 100vh;
+        z-index: 1000;
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-240px);
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .sidebar.collapsed ~ .main-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .analysis-section,
+    .welcome-message {
+        margin: 20px;
+        padding: 20px;
+    }
+}

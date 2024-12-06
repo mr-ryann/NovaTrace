@@ -1,0 +1,114 @@
+/* Completed Cases Styles */
+@import url('styles.css');
+
+/* Case Card Styles */
+.case-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.case-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Status Badge Styles */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-badge.solved {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.status-badge.closed {
+    background-color: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+}
+
+.status-badge.archived {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+}
+
+/* Search and Filter Styles */
+input[type="text"],
+select {
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus,
+select:focus {
+    border-color: #3b82f6;
+}
+
+/* Pagination Button Styles */
+.pagination-button {
+    transition: background-color 0.2s ease;
+}
+
+.pagination-button:hover {
+    background-color: #f3f4f6;
+}
+
+.pagination-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    #sidebar {
+        position: fixed;
+        z-index: 50;
+        height: 100vh;
+    }
+    
+    #sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .filters-container {
+        flex-direction: column;
+    }
+
+    .filters-container > * {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}

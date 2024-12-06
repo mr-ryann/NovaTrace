@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTrace - Existing Cases</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/existing-cases.css">
+    <link rel="icon" type="/assets/image/png" href="n.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="bg-white shadow-lg transition-all duration-300 w-64">
+            <div class="p-4 border-b flex items-center justify-between">
+                <div id="logo-container" class="flex items-center">
+                    <span class="font-bold text-lg">NovaTrace</span>
+                </div>
+            </div>
+
+            <div class="p-4 border-b">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+                    </div>
+                    <div id="user-info">
+                        <h2 id="userName" class="text-xl font-bold text-center">John Doe</h2>
+                        <p class="text-gray-600">Senior Digital Forensics Investigator</p>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="p-2 space-y-2">
+                <a href="home.html" class="flex items-center p-2 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="home" class="w-4 h-4 mr-3"></i>
+                    <span class="flex-1">Home</span>
+                </a>
+                <a href="#" class="flex items-center p-2 bg-gray-100 rounded-lg">
+                    <i data-lucide="folder-open" class="w-4 h-4 mr-3"></i>
+                    <span class="flex-1">Existing Cases</span>
+                </a>
+                <a href="completed-cases.html" class="flex items-center p-2 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="check-square" class="w-4 h-4 mr-3"></i>
+                    <span class="flex-1">Completed Cases</span>
+                </a>
+                <a href="#" class="flex items-center p-2 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="settings" class="w-4 h-4 mr-3"></i>
+                    <span class="flex-1">Settings</span>
+                </a>
+                <a href="#" id="logoutButton" class="flex items-center p-2 hover:bg-gray-100 rounded-lg">
+                    <i data-lucide="log-out" class="w-4 h-4 mr-3"></i>
+                    <span class="flex-1">Logout</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 p-8 flex flex-col h-screen overflow-y-auto">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+                <div class="flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">Existing Cases</h1>
+                    <button id="newCaseBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center">
+                        <i data-lucide="plus" class="w-4 h-4 mr-2"></i>
+                        New Case
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters and Search -->
+            <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+                <div class="flex flex-wrap gap-4 items-center">
+                    <div class="flex-1 min-w-[200px]">
+                        <input type="text" id="searchInput" placeholder="Search cases..." 
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div class="flex gap-2 flex-wrap">
+                        <select id="priorityFilter" class="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">All Priorities</option>
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                        <select id="statusFilter" class="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">All Status</option>
+                            <option value="open">Open</option>
+                            <option value="in_progress">In Progress</option>
+                            <option value="pending">Pending Review</option>
+                        </select>
+                        <select id="assigneeFilter" class="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="all">All Assignees</option>
+                            <option value="me">Assigned to Me</option>
+                            <option value="unassigned">Unassigned</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cases Grid -->
+            <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Cases will be dynamically inserted here -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-6 flex justify-center items-center space-x-2">
+                <button id="prevPage" class="p-2 border rounded-lg hover:bg-gray-100">
+                    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                </button>
+                <span id="pageInfo" class="text-sm">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+                <button id="nextPage" class="p-2 border rounded-lg hover:bg-gray-100">
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/js/existing-cases.js"></script>
+    <script src="/assets/js/router.js"></script>
+</body>
+</html>
