@@ -6,6 +6,7 @@ from datetime import datetime
 import json
 import time
 
+
 app = Flask(__name__, static_url_path='')
 CORS(app)
 

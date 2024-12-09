@@ -1,189 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>NovaTrace - Digital Forensics & Incident Response</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://unpkg.com/lucide@latest"></script>
-        <link rel="stylesheet" type="text/css" href="/assets/css/landing.css">
-        <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    </head>
-<body class="min-h-screen bg-gray-50">
-    <!-- Login Dialog -->
-    <div id="loginDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full relative">
-            <div class="p-6">
-                <h2 class="text-xl font-semibold mb-1">Login to NovaTrace</h2>
-                <p class="text-gray-500 mb-4">Enter your credentials to access the full features</p>
-                <form id="loginForm" class="space-y-4">
-                    <div class="space-y-2">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <div class="relative">
-                            <i data-lucide="mail" class="absolute left-3 top-3 h-4 w-4 text-gray-400"></i>
-                            <input id="email" type="email" placeholder="name@company.com" 
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <div class="relative">
-                            <i data-lucide="lock" class="absolute left-3 top-3 h-4 w-4 text-gray-400"></i>
-                            <input id="password" type="password" placeholder="Enter your password" 
-                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                    </div>
-                    <div class="flex justify-end pt-2">
-                        <button type="button" id="cancelLogin" 
-                            class="mr-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors">
-                            Cancel
-                        </button>
-                        <button type="submit" id="submitLogin" 
-                            class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
-                            <span class="login-text">Login</span>
-                            <span class="loading-text hidden">
-                                <i data-lucide="loader-2" class="animate-spin mr-2 h-4 w-4"></i>
-                            </span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTrace - Digital Forensics Platform</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/landing.css">
+</head>
+<body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-gray-900 text-white">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold">NovaTrace</div>
-                <button id="loginButton" 
-                    class="px-4 py-2 border border-white rounded-lg bg-transparent hover:bg-white hover:text-gray-900 transition-colors flex items-center">
-                    <i data-lucide="log-in" class="mr-2 h-4 w-4"></i>
-                    <span>Login</span>
-                </button>
+    <nav class="fixed w-full z-50 bg-gradient-to-r from-gray-950 to-indigo-950">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <i data-lucide="search" class="h-6 w-6 text-white mr-2"></i>
+                    <span class="text-xl font-bold text-white">NovaTrace</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#features" class="text-gray-200 hover:text-white transition-colors">Features</a>
+                    <a href="#ftk-imager" class="text-gray-200 hover:text-white transition-colors">FTK Guide</a>
+                    <button id="loginBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Login
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-        <div class="container mx-auto px-4 py-16">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-4xl font-bold mb-6">
-                    Advanced Digital Forensics & Incident Response
-                </h1>
-                <p class="text-xl text-gray-300 mb-8">
-                    Powerful forensics analysis toolkit for security professionals. 
-                    Investigate incidents, collect evidence, and respond rapidly.
-                </p>
-                <div class="flex gap-4 justify-center">
-                    <button id="tryButton" 
-                        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white flex items-center transition-colors">
-                        Try Now
-                        <i data-lucide="chevron-right" class="ml-2 h-4 w-4"></i>
-                    </button>
-                    <button class="px-6 py-3 border border-white rounded-lg bg-transparent hover:bg-white hover:text-gray-900 flex items-center transition-colors">
-                        <i data-lucide="github" class="mr-2 h-4 w-4"></i>
-                        View on GitHub
-                    </button>
+    <section class="bg-gradient-to-r from-gray-950 to-indigo-950 text-white pt-24 pb-16 fade-in">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-6 slide-up">
+                        Advanced Digital Forensics Investigation Platform
+                    </h1>
+                    <p class="text-lg text-gray-200 mb-8 slide-up">
+                        Streamline your digital forensics workflow with powerful tools and intuitive interface.
+                    </p>
+                    <div class="space-y-3">
+                        <button id="getStartedBtn" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors slide-up group relative">
+                            Get Started
+                            <span class="absolute left-1/2 -translate-x-1/2 -bottom-8 hidden group-hover:block whitespace-nowrap">
+                                <span class="text-gray-300 text-sm font-light">✨ Login required to proceed further</span>
+                            </span>
+                        </button>
+                    </div>
                 </div>
-                <p id="loginRequired" class="text-sm text-gray-400 mt-4">
-                    Login required to access the tool
-                </p>
+                <div class="lg:w-1/2 slide-in-right">
+                    <i data-lucide="shield" class="h-64 w-64 text-white mx-auto"></i>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- FTK Imager Section -->
+    <section id="ftk-imager" class="py-16 bg-white scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-8 text-center">FTK Imager Guide</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-center mb-6">
+                    Learn how to create forensic disk images using 
+                    <a href="https://www.exterro.com/ftk-imager" target="_blank" class="text-blue-600 hover:underline">
+                        FTK Imager
+                    </a>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                            <h3 class="font-semibold">Create Image</h3>
+                        </div>
+                        <p class="text-gray-600">Select File > Create Disk Image and choose your source drive</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">2</span>
+                            <h3 class="font-semibold">Image Type</h3>
+                        </div>
+                        <p class="text-gray-600">Choose E01 format and set compression level</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">3</span>
+                            <h3 class="font-semibold">Evidence Item</h3>
+                        </div>
+                        <p class="text-gray-600">Fill in case details and start the imaging process</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Features Section -->
-    <div class="py-16 container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="flex items-start">
-                    <div class="p-2 bg-blue-100 rounded-lg">
-                        <i data-lucide="search" class="h-6 w-6 text-blue-600"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="font-semibold text-lg mb-2">Deep Analysis</h3>
-                        <p class="text-gray-600">
-                            Advanced memory forensics, disk imaging, and malware detection capabilities
-                        </p>
-                    </div>
+    <section id="features" class="py-16 scroll-reveal">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto max-w-6xl">
+                <div class="feature-card">
+                    <i data-lucide="hard-drive" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Disk Analysis</h3>
+                    <p class="text-gray-600">Advanced disk imaging and analysis capabilities with support for multiple formats</p>
                 </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="flex items-start">
-                    <div class="p-2 bg-green-100 rounded-lg">
-                        <i data-lucide="clock" class="h-6 w-6 text-green-600"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="font-semibold text-lg mb-2">Rapid Response</h3>
-                        <p class="text-gray-600">
-                            Quick triage and automated evidence collection to minimize incident impact
-                        </p>
-                    </div>
+                <div class="feature-card">
+                    <i data-lucide="file-search" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">File Recovery</h3>
+                    <p class="text-gray-600">Recover deleted files and reconstruct fragmented data with precision</p>
                 </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <div class="flex items-start">
-                    <div class="p-2 bg-purple-100 rounded-lg">
-                        <i data-lucide="terminal" class="h-6 w-6 text-purple-600"></i>
-                    </div>
-                    <div class="ml-4">
-                        <h3 class="font-semibold text-lg mb-2">Command Line</h3>
-                        <p class="text-gray-600">
-                            Powerful CLI interface for automation and scripting capabilities
-                        </p>
-                    </div>
+                <div class="feature-card">
+                    <i data-lucide="shield-check" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Chain of Custody</h3>
+                    <p class="text-gray-600">Maintain detailed documentation and ensure evidence integrity</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="database" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Case Management</h3>
+                    <p class="text-gray-600">Organize and track multiple cases with our intuitive management system</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="file-text" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Report Generation</h3>
+                    <p class="text-gray-600">Create comprehensive reports with customizable templates</p>
+                </div>
+                <div class="feature-card">
+                    <i data-lucide="lock" class="h-12 w-12 text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Secure Evidence Storage</h3>
+                    <p class="text-gray-600">Encrypted storage solutions for maintaining evidence integrity and confidentiality</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Stats Section -->
-    <div class="bg-gray-900 text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div>
-                    <div class="text-4xl font-bold text-blue-400">500+</div>
-                    <div class="mt-2 text-gray-400">Active Users</div>
+    <!-- Login Modal -->
+    <div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-gradient-to-b from-gray-950 to-indigo-950 rounded-xl p-8 max-w-md w-full mx-4 shadow-2xl transform transition-all">
+            <div class="text-center mb-8">
+                <div class="flex justify-end">
+                    <button id="closeModal" class="text-gray-400 hover:text-white transition-colors">
+                        <i data-lucide="x" class="h-6 w-6"></i>
+                    </button>
                 </div>
-                <div>
-                    <div class="text-4xl font-bold text-blue-400">50k+</div>
-                    <div class="mt-2 text-gray-400">Investigations</div>
-                </div>
-                <div>
-                    <div class="text-4xl font-bold text-blue-400">99%</div>
-                    <div class="mt-2 text-gray-400">Success Rate</div>
-                </div>
+                <i data-lucide="shield" class="h-12 w-12 text-blue-400 mx-auto mb-4"></i>
+                <h3 class="text-2xl font-bold text-white mb-2">Welcome Back</h3>
+                <p class="text-gray-400 text-sm">Access your digital forensics workspace</p>
             </div>
+            <form id="loginForm" class="space-y-5">
+                <div class="space-y-2">
+                    <label for="email" class="block text-sm font-medium text-gray-300">Email</label>
+                    <div class="relative">
+                        <i data-lucide="mail" class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label for="password" class="block text-sm font-medium text-gray-300">Password</label>
+                    <div class="relative">
+                        <i data-lucide="lock" class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+                        <input type="password" id="password" name="password" required 
+                               class="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">
+                    </div>
+                </div>
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center text-gray-300">
+                        <input type="checkbox" class="form-checkbox bg-gray-800 border-gray-700 rounded text-blue-500 mr-2">
+                        Remember me
+                    </label>
+                    <a href="#" class="text-blue-400 hover:text-blue-300 transition-colors">Forgot password?</a>
+                </div>
+                <div class="pt-4">
+                    <button type="submit" 
+                            class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 px-4 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center space-x-2 h-11">
+                        <span>Sign In</span>
+                        <i data-lucide="arrow-right" class="h-5 w-5"></i>
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- CTA Section -->
-    <div class="py-16 container mx-auto px-4">
-        <div class="max-w-3xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">
-                Ready to enhance your forensics capabilities?
-            </h2>
-            <p class="text-xl text-gray-600 mb-8">
-                Join hundreds of security professionals who trust NovaTrace for their DFIR needs.
-            </p>
-            <button id="ctaTryButton" 
-                class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center mx-auto transition-colors">
-                Try Now
-                <i data-lucide="chevron-right" class="ml-2 h-4 w-4"></i>
-            </button>
-            <p class="text-sm text-gray-600 mt-4 login-required">
-                Login required to access the tool
-            </p>
-        </div>
-    </div>
-
-    <!-- Custom JavaScript -->
-    <script src="/assets/js/router.js"></script>
     <script src="/assets/js/landing.js"></script>
 </body>
 </html>

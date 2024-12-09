@@ -1,101 +1,159 @@
-/* Custom styles for NovaTrace Landing Page */
 @import url('styles.css');
-/* Login Dialog Animation */
+/* Hide scrollbar for all elements */
+* {
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+    width: 0;
+    height: 0;
+}
+
+/* Also ensure modals don't show scrollbars */
+.modal-content {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modal-content::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Main content scrolling container */
+html, body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow-y: scroll;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* Animation Classes */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.6s ease-out forwards;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Feature Cards */
+.feature-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.feature-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+}
+
+.feature-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Modal Animations */
+.modal-enter {
+    animation: modalFadeIn 0.3s ease-out forwards;
+}
+
+.modal-exit {
+    animation: modalFadeOut 0.3s ease-out forwards;
+}
+
+/* Landing Page Specific Animation Keyframes */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes slideIn {
-    from { transform: translateY(-20px); }
-    to { transform: translateY(0); }
-}
-
-#loginDialog {
-    animation: fadeIn 0.3s ease-out;
-}
-
-#loginDialog > div {
-    animation: slideIn 0.3s ease-out;
-}
-
-/* Loading Animation */
-.animate-spin {
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
+@keyframes slideUp {
     from {
-        transform: rotate(0deg);
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-        transform: rotate(360deg);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Custom Transitions */
-.transition-all {
-    transition: all 0.3s ease;
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-/* Utility Classes */
-.hidden {
-    display: none !important;
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-/* Focus States */
-input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-/* Button Hover Effects */
-button:hover {
-    transform: translateY(-1px);
-}
-
-button:active {
-    transform: translateY(0);
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .flex.gap-4 {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .flex.gap-4 button {
-        width: 100%;
-        justify-content: center;
+    .slide-in-right {
+        animation: slideUp 0.6s ease-out forwards;
     }
 }
 
-/* Feature Card Hover Effects */
-.bg-white.p-6.rounded-lg {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.bg-white.p-6.rounded-lg:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Stats Animation */
-.text-4xl.font-bold {
-    transition: transform 0.3s ease;
-}
-
-.text-4xl.font-bold:hover {
-    transform: scale(1.1);
+/* Modal Base Styles Specific to Landing */
+.modal-backdrop {
+    backdrop-filter: blur(4px);
 }
